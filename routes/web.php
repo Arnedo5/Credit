@@ -24,7 +24,14 @@ Route::get('/',[
     'uses' => 'StoreControler@index'
 ]);
 
+//Detail product
 Route::get('product/{PRDNUM}',[
     'as' => 'product-detail',
     'uses' => 'StoreControler@show'
+]);
+
+//Category product
+Route::get('{PRCNAME}',[
+    'as' => 'product-category',
+    'uses' => 'StoreControler@category'
 ]);

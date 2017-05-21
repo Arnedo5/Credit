@@ -1,6 +1,7 @@
 //Zoom image
 $(document).ready(function(){
     $('.materialboxed').materialbox();
+   
 });
 
 //Slider

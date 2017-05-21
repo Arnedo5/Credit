@@ -9,9 +9,11 @@ body {
 }
 
 nav {
-  background-color: #34495e;
+  background-color: #21252B;
   position: relative;
 }
+
+
 
 .container {
   margin-top: 20px;
@@ -51,6 +53,12 @@ nav {
   margin-bottom: 1.5rem;
   font-weight: bold;
   text-shadow: 0 5px 5px rgba(0,0,0,0.3);
+}
+
+/* Index image */
+.index-image {
+  height: 250px;
+  width: auto;
 }
 
 /* PRODUCT GALERY*/
@@ -181,4 +189,9 @@ header, main, footer {
     top: 5px;
     left: 5px;
   }
+}
+
+/* Footer */
+.page-footer {
+  background-color: #21252B;
 }

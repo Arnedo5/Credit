@@ -3,22 +3,50 @@
 
 
 @section('content')
+    <!-- Navbar -->
     @include('store.partials.slider')
-    <!-- Lateral Menu -->
-    <ul id="slide-out" class="side-nav fixed">
-        <li><p class="tittle-categories">CATEGORIES</p></li>
-        <div class="divider-mini"></div>
-        @foreach($categories as $categorie)
-            <li><a href="#!"><i class="material-icons">{{$categorie->PRCIMG}}</i>{{$categorie->PRCNAME}}</a></li>
-        @endforeach
-    </ul>
-    <div class="vertical-menu">
-        <a href="#" data-activates="slide-out" class="button-collapse">
-            <i class="material-icons btn-menu" id="menu">menu</i>
-        </a>
-    </div>
+
+    <!-- Menu -->
+    @include('store.partials.menu')
+
     <!-- Content -->
     <div class="container">
+        <div class="row">
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="index-image" src="img/indexSquare/square1.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="index-image" src="img/indexSquare/square2.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="index-image" src="img/indexSquare/square1.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="p-opinions"><i class="material-icons">gesture</i>
+                            <span class="opinions">Els nostres productes</span>
+                        </p>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Gallery products-->
        <div class="galeria">
         @foreach($products as $product)
             <!-- Cards -->

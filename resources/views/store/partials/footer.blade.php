@@ -1,5 +1,5 @@
-    <!-- Footer 
-<footer class="page-footer grey darken-1">
+<!-- Footer -->
+<footer class="page-footer">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
@@ -25,4 +25,3 @@
         </div>
     </div>
 </footer>
--->
