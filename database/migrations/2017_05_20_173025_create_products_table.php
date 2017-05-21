@@ -18,9 +18,9 @@ class CreateProductsTable extends Migration
             $table->integer('PRDNUM');
             $table->integer('PRDIDCATEGORY')->unsigned();
             $table->foreign('PRDIDCATEGORY')->references('PRCID')->on('product_categories');
-            $table->string('PRDNAME', 30);
-            $table->string('PRDDESCRIPTION', 350);
-            $table->string('PRDIMG ', 300);
+            $table->string('PRDNAME', 100);
+            $table->string('PRDDESCRIPTION', 500);
+            $table->string('PRDIMG', 300);
             $table->integer('PRDSTOCK');
             $table->decimal('PRDPRICE', 5,2);
             $table->boolean('PRDSTATUS');

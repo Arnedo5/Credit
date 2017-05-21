@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('ORDNUM');
             $table->integer('ORDIDUSER')->unsigned();
             $table->foreign('ORDIDUSER')->references('USRID')->on('users');
-            $table->decimal('ORDSUBTOTAL ',10,2);
+            $table->decimal('ORDSUBTOTAL',10,2);
             $table->integer('ORDIDSTEP')->unsigned();
             $table->foreign('ORDIDSTEP')->references('ORSID')->on('order_steps');
             $table->integer('ORDIDCATEGORY')->unsigned();

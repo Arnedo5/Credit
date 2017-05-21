@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('USRMAIL')->unique();
             $table->string('USRPASSWORD');
             $table->string('USRCITY', 50);
-            $table->string('USRDIRECTION ', 100);
+            $table->string('USRDIRECTION', 100);
             $table->string('USRPOSTAL', 5);
             $table->string('USRDESCRIPTION', 350);
             $table->string('USRIMG', 300);
