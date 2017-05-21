@@ -19,4 +19,12 @@ Route::get('/', function () {
 
 */
 
-Route::get('/','StoreControler@index');
+Route::get('/',[
+    'as' => 'home',
+    'uses' => 'StoreControler@index'
+]);
+
+Route::get('product/{PRDNUM}',[
+    'as' => 'product-detail',
+    'uses' => 'StoreControler@show'
+]);
