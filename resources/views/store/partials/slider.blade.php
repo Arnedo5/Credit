@@ -5,7 +5,7 @@
         <img src="img/slider/slider1.png"> <!-- random image -->
         <div class="caption left-align">
             <h3>Benvingut!</h3>
-            <h5 class="light grey-text text-lighten-3">Entra, remena, opina :D</h5>
+            <h5 class="light grey-text text-lighten-3">Entra, remena, opina</h5>
             <a class="waves-effect waves-light btn blue btn-left"><i class="material-icons left">add</i>Més informacio</a>
         </div>
         </li>

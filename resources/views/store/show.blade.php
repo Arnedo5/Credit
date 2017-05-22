@@ -23,7 +23,7 @@
                         <div class="divider"></div>
                         <p class="card-title tittle">{{$product->PRDDESCRIPTION}}</p>
                         <div class="divider"></div>
-                        <a class="waves-effect waves-light btn blue btn-left"><i class="material-icons left">add_shopping_cart</i>Comprar</a>
+                        <a class="waves-effect waves-light btn blue btn-left" href="{{route('cart-add',$product->PRDNUM)}}"><i class="material-icons left">add_shopping_cart</i>Comprar</a>
                         <a class="waves-effect waves-light btn blue"><i class="material-icons left">add</i>informació</a>
                     </div>
                 </div>
@@ -39,6 +39,7 @@
                         <div class="divider"></div>
                     </div>
                 </div>
+                <div class="container-divider"></div>
             </div>
         </div>
     </div>

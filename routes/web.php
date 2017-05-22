@@ -18,6 +18,10 @@ Route::get('/', function () {
 });
 
 */
+Route::bind('product',function($PRDNUM){
+    return App\Product::where('PRDNUM',$PRDNUM)->first();
+});
+
 
 Route::get('/',[
     'as' => 'home',
@@ -34,4 +38,34 @@ Route::get('product/{PRDNUM}',[
 Route::get('{PRCNAME}',[
     'as' => 'product-category',
     'uses' => 'StoreControler@category'
+]);
+
+//Show cart
+Route::get('cart/show',[
+    'as' => 'cart-show',
+    'uses' => 'CartController@show'
+]);
+
+//Add item
+Route::get('cart/add/{product}',[
+    'as' => 'cart-add',
+    'uses' => 'CartController@add'
+]);
+
+//Delete item
+Route::get('cart/delete/{product}',[
+    'as' => 'cart-delete',
+    'uses' => 'CartController@delete'
+]);
+
+//Delete all cart
+Route::get('cart/trash',[
+    'as' => 'cart-trash',
+    'uses' => 'CartController@trash'
+]);
+
+//Update quantity
+Route::get('cart/update/{product}/{quantity?}',[
+    'as' => 'cart-update',
+    'uses' => 'CartController@update'
 ]);
