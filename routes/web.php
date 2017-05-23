@@ -35,7 +35,7 @@ Route::get('product/{PRDNUM}',[
 ]);
 
 //Category product
-Route::get('{PRCNAME}',[
+Route::get('category/{PRCNAME}',[
     'as' => 'product-category',
     'uses' => 'StoreControler@category'
 ]);
@@ -69,3 +69,8 @@ Route::get('cart/update/{product}/{quantity?}',[
     'as' => 'cart-update',
     'uses' => 'CartController@update'
 ]);
+
+
+//Login routes
+Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');

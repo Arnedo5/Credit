@@ -24,7 +24,7 @@
                 <div class="item">
                     <div class="card">
                         <div class="card-image">    
-                            <img src="{{$product->PRDIMG}}">
+                            <img src="../{{$product->PRDIMG}}">
                             <a class="btn-floating btn-second halfway-fab waves-effect waves-light  blue" href="{{route('product-detail',$product->PRDNUM)}}"><i class="material-icons">info_outline</i></a>
                             <a class="btn-floating halfway-fab waves-effect waves-light red" href="{{route('cart-add',$product->PRDNUM)}}"><i class="material-icons">add_shopping_cart</i></a>  
                         </div>

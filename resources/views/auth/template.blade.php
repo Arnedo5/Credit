@@ -24,16 +24,13 @@
     <script src="{{asset('lib/noty.js')}}" type="text/javascript"></script>
 
     <!-- Css -->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.login.css')}}">
 </head>
 <body>
-    @include('store.partials.nav')
 
     <main>
     @yield('content')
     </main>
-    
-    @include('store.partials.footer')
 
     <!-- JS -->
     <script src="{{ asset('js/main.js') }}"></script>

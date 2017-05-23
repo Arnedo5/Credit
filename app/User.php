@@ -15,8 +15,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+         'name', 'USRMAIL', 'USRPASSWORD',
     ];
+
+    protected $primaryKey = 'USRID';
 
     /**
      * The attributes that should be hidden for arrays.
@@ -24,6 +26,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token'
     ];
+
+    public function getAuthPassword()
+    {
+        return $this->USRPASSWORD;
+    }
+
+
 }

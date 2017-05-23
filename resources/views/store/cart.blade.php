@@ -66,7 +66,7 @@
                                                 </div>
                                             </td>
                                             <td>{{number_format($item->PRDPRICE * $item->quantity,2)}} €</td>
-                                            <td><a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('cart-delete',$item->PRDNUM)}}" ><i class="material-icons center">clear</i></a></td>
+                                            <td><a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('cart-delete',$item->PRDNUM)}}" ><i class="material-icons center">remove_shopping_cart</i></a></td>
                                         </tr>
                                         <?php $a++;?>     
                                     @endforeach
@@ -85,11 +85,11 @@
             <div class="row">
                 <div class="col s12 m12 l12">
                     <div class="card">
-                        <div class="card-content">
+                        <div class="card-content row">
                             <div class="btn-left-cart col s12 m6 l6">
                                 <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('home')}}"><i class="material-icons left">keyboard_arrow_left</i>Continuar comprant</a>
                             </div>
-                            <div class="btn-right-cart">
+                            <div class="btn-right-cart col s12 m6 l6 text-right">
                                 <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('cart-trash')}}"><i class="material-icons left">delete</i>Builda la cistella</a>
                                 <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="#!"><i class="material-icons right">keyboard_arrow_right</i>Continuar</a>
                             </div>
