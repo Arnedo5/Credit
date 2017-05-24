@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-         'name', 'USRMAIL', 'USRPASSWORD',
+         'USRLOGIN', 'USRMAIL', 'USRPASSWORD',
     ];
 
     protected $primaryKey = 'USRID';
@@ -34,5 +34,9 @@ class User extends Authenticatable
         return $this->USRPASSWORD;
     }
 
-
+    public function getEmailForPasswordReset()
+    {
+        return $this->USRMAIL;
+        
+    }
 }

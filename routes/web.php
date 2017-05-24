@@ -85,4 +85,3 @@ Route::get('order-detail',[
 //Login routes
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
-

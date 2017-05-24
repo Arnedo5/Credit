@@ -10,21 +10,29 @@ use App\ProductCategory;
 
 class StoreControler extends Controller
 {
+    public function __construct() 
+    {
+        if(!\Session::has('cart')) \Session::put('cart',array());
+    }
+
     public function index ()
     {
-        //$products = Product::all();
+        $cart = \Session::get('cart');
+
         $categories = DB::table('product_categories')
             ->where('PRCSTATUS', true)
             ->get();
         $products = DB::table('products')
             ->where('PRDSTATUS', true)
             ->get();
-        return view('store.index',compact('products','categories'));
+
+        return view('store.index',compact('products','categories','cart'));
       
     }
 
     public function show($PRDNUM) 
     {
+        $cart = \Session::get('cart');
         $categories = DB::table('product_categories')
             ->where('PRCSTATUS', true)
             ->get();
@@ -32,11 +40,12 @@ class StoreControler extends Controller
             ->where('PRDNUM',$PRDNUM)
             ->first();
         
-        return view('store.show',compact('product','categories'));
+        return view('store.show',compact('product','categories','cart'));
     }
 
     public function category($PRCNAME) 
     {
+        $cart = \Session::get('cart');
         $categories = DB::table('product_categories')
         ->where('PRCSTATUS', true)
         ->get();
@@ -69,6 +78,6 @@ class StoreControler extends Controller
             ])
             ->get();
 
-        return view('store.category',compact('products','categories','PRCNAME','img'));
+        return view('store.category',compact('products','categories','PRCNAME','img','cart'));
     }
 }

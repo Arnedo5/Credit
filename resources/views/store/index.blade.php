@@ -8,7 +8,6 @@
 
     <!-- Menu -->
     @include('store.partials.menu')
-
     <!-- Content -->
     <div class="container">
         <div class="row">
