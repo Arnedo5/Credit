@@ -81,4 +81,19 @@ class CartController extends Controller
 
         return $total;
     }
+
+    //Order Detail
+    public function orderDetail()
+    {
+        $categories = DB::table('product_categories')
+            ->where('PRCSTATUS', true)
+            ->get();
+
+        if(count(\Session::get('cart')) <= 0) return redirect()->route('home');
+        $cart = \Session::get('cart');
+        $total = $this->total();
+
+        return view('store.order-detail',compact('cart','categories','total'));
+       
+    }
 }

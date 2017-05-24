@@ -1,6 +1,9 @@
 @extends('auth.template')
 
+
 @section('content')
+
+@include('store.partials.error')
 <div class="container">
     <div class="row">
         <div class="col s12 m4 l4 offset-l4">
@@ -11,44 +14,32 @@
                         <div class="row">
                             <div class="input-field col s12 center">
                                 <img src="img/login/login.png" alt="" class="img-circle valign profile-image-login">
-                                <p class="center login-form-text">Material Design Admin Template</p>
+                                <p class="center login-form-text">Benvingut!</p>
                             </div>
                         </div>
                         <div class="row margin">
                             <div class="input-field col s12">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input id="USRMAIL" type="email" class="form-control" name="USRMAIL" value="{{ old('USRMAIL') }}" required autofocus>
-                                @if ($errors->has('USRMAIL'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('USRMAIL') }}</strong>
-                                        </span>
-                                @endif
-                                <label for="USRMAIL" class="center-align">Username</label>
+                                <i class="material-icons prefix">perm_identity</i>
+                                <input id="USRLOGIN" type="text" class="form-control" name="USRLOGIN" value="{{ old('USRLOGIN') }}" required autofocus>
+                                <label for="USRLOGIN" class="center-align">Nom d'usuari</label>
                             </div>
                         </div>
                         <div class="row margin">
                             <div class="input-field col s12">
-                                <i class="mdi-action-lock-outline prefix"></i>
+                                <i class="material-icons prefix">lock_outline</i>
                                 <input id="password" type="password" class="form-control" name="password" required>
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                    @endif
                                 <label for="password" class="">Password</label>
                             </div>
                         </div>
                         <div class="row">          
                             <div class="input-field col s12 m12 l12  login-text">
                                 <input type="checkbox" id="remember-me" {{ old('remember') ? 'checked' : '' }}>
-                                <label for="remember-me">Remember me</label>
+                                <label for="remember-me">Recorda</label>
                             </div>
                         </div>
                         <div class="row">
-                        <div class="input-field col s12">
-                             <button type="submit" class="btn btn-primary">
-                                    Login
-                            </button>
+                        <div class="input-field col s12 m12 l12">
+                             <button type="submit" class="btn btn-primary btn-summit">Login</button>
                         </div>
                         </div>
                         <div class="row">

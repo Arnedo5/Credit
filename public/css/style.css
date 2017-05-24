@@ -21,6 +21,21 @@ main {
   text-align: right;
 }
 
+.img-circle {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.img-container {
+  padding-left: 70px;
+}
+
+.side-nav .userView .circle {
+  width: 100px;
+  height: 100px;
+}
+
 .container {
   margin-top: 20px;
 }

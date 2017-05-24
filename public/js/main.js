@@ -67,10 +67,12 @@ $(".btn-update-item").on('click', function (e) {
     var href = $(this).data('href');
     var quantity = $("#product_" + id).val();
 
-    console.log("ID: " + id)
-     console.log("href: " + href)
-      console.log("quantity: " + quantity)
-
     window.location.href = href + "/" + quantity;
 });
+
+//Error - Noty
+function createNoty() {
+    console.log("NOTAAAA");
+}
+
 

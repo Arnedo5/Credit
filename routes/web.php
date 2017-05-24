@@ -28,6 +28,11 @@ Route::get('/',[
     'uses' => 'StoreControler@index'
 ]);
 
+Route::get('/home',[
+    'as' => 'home',
+    'uses' => 'StoreControler@index'
+]);
+
 //Detail product
 Route::get('product/{PRDNUM}',[
     'as' => 'product-detail',
@@ -70,7 +75,14 @@ Route::get('cart/update/{product}/{quantity?}',[
     'uses' => 'CartController@update'
 ]);
 
+//Oder detail
+Route::get('order-detail',[
+    'middleware'=>'auth',
+    'as'=>'order-detail',
+    'uses'=>'CartController@orderDetail'
+]);
 
 //Login routes
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
+

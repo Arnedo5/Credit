@@ -34,10 +34,6 @@
 
     <!-- JS -->
     <script src="{{ asset('js/main.js') }}"></script>
-
-    <!-- Carousel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
-
 </body>
 
 </html>
