@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('USRPOSTAL', 5);
             $table->string('USRDESCRIPTION', 350);
             $table->string('USRIMG', 300);
+            $table->integer('USRIMG');
             $table->boolean('USRSTATUS');
             $table->rememberToken();
             $table->timestamps();

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Image;
 
 class RegisterController extends Controller
 {
@@ -47,11 +49,18 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'USRLOGIN' => 'required|string|max:50|unique:users',
             'USRMAIL' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'USRNAME' => 'required|string|max:50',
+            'USRLASTNAME' => 'required|string|max:350',
+            'USRCITY' => 'required|string|max:350',
+            'USRDIRECTION' => 'required|string|max:50',
+            'USRIMG' => 'image|mimes:jpeg,png,bmp,gif,svg',
         ]);
+        
     }
 
     /**
@@ -62,10 +71,39 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $categories = DB::table('product_categories')
+            ->where('PRCSTATUS', true)
+            ->get();
+            
+        $user = DB::table('users')
+            ->count();
+        $user++;
+
+        if (array_key_exists('USRIMG', $data)) {
+            $urlImage = 'img/profileImage/profile'.$user.'.png';
+        } else {
+            $urlImage = 'img/profileImage/default.png';
+        }
+
         return User::create([
-            'USRLOGIN' => $data['name'],
+            'USRNUM' => $user,
+            'USRTYPE' => 'user',
+            'USRLOGIN' => $data['USRLOGIN'],
+            'USRNAME' => $data['USRNAME'],
+            'USRLASTNAME' => $data['USRLASTNAME'],
             'USRMAIL' => $data['USRMAIL'],
-            'USRPASSWORD' => bcrypt($data['password'])
+            'USRPASSWORD' => bcrypt($data['password']),
+            'USRCITY' => $data['USRCITY'],
+            'USRDIRECTION' => $data['USRDIRECTION'],
+            'USRPOSTAL' => $data['USRPOSTAL'],
+            'USRMOBILE' => $data['USRMOBILE'],
+            'USRDESCRIPTION' => 'Usuari estàndard',
+            'USRIMG' => $urlImage,
+            'USRSTATUS' => true,
         ]);
     }
 }
+
+
+//if (Auth:: USRSTATUS == true ) => LOGOUT OR LOGIN

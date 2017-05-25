@@ -23,7 +23,11 @@ body {
 }
 
 .container {
-    margin-top: 90px;
+    margin-top: 40px;
+}
+
+.second-step {
+  display: none;
 }
 
 .img-circle {

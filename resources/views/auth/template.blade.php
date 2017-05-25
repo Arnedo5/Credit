@@ -25,6 +25,7 @@
 
     <!-- Css -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.login.css')}}">
+
 </head>
 <body>
 
@@ -33,7 +34,9 @@
     </main>
 
     <!-- JS -->
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/main.js')}}"></script>
+
+    @include('store.partials.error')
 </body>
 
 </html>

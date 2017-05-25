@@ -21,15 +21,7 @@ var open = true;
 
 $("#menu").click(function () {
     if (open) {
-        $('header').animate({
-            marginLeft: '0px'
-        }, 500);
-
-        $('main').animate({
-            marginLeft: '0px'
-        }, 500);
-
-        $('footer').animate({
+        $('header, main, footer').animate({
             marginLeft: '0px'
         }, 500);
 
@@ -38,15 +30,7 @@ $("#menu").click(function () {
         }, 500);
         open = false;
     } else {
-        $('header').animate({
-            marginLeft: '300px'
-        }, 500);
-
-        $('main').animate({
-            marginLeft: '300px'
-        }, 500);
-
-        $('footer').animate({
+        $('header, main, footer').animate({
             marginLeft: '300px'
         }, 500);
 
@@ -56,7 +40,6 @@ $("#menu").click(function () {
         open = true;
     }
 });
-
 
 
 // Update item cart
@@ -71,8 +54,32 @@ $(".btn-update-item").on('click', function (e) {
 });
 
 //Error - Noty
-function createNoty() {
-    console.log("NOTAAAA");
+function createNoty(type,position,message,time) {
+    new Noty({
+        type: type,
+        layout: position,
+        theme: 'relax',
+        text: message,
+        timeout: time,
+        progressBar: true,
+        closeWith: ['click', 'button'],
+        animation: {
+            open: 'noty_effects_open',
+            close: 'noty_effects_close'
+        }
+    }).show()
 }
+
+function redirect() {
+    location.href = "logout";
+}
+
+//Forms login & register
+$('.continue').click(function () {
+    $('.transform').animate({
+        height: "toggle",
+        opacity: "toggle"
+    }, "slow");
+});
 
 

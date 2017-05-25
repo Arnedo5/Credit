@@ -15,7 +15,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-         'USRLOGIN', 'USRMAIL', 'USRPASSWORD',
+        'USRNUM','USRTYPE','USRLOGIN','USRNAME','USRLASTNAME','USRMAIL','USRPASSWORD','USRCITY','USRDIRECTION','USRDESCRIPTION','USRPOSTAL','USRIMG','USRMOBILE', 'USRSTATUS'
+        //'USRNUM','USRTYPE','USRLOGIN', 'USRMAIL', 'USRPASSWORD', 'USRSTATUS',
     ];
 
     protected $primaryKey = 'USRID';

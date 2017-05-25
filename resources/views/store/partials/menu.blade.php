@@ -3,10 +3,14 @@
      @if(Auth::check())
         <li><div class="userView">
         <div class="background">
-            <img src=" {{URL::asset('img/Login/background.png')}}">
+            <img src="{{URL::asset('img/Login/background.png')}}">
         </div>
         <div class="img-container">
-            <img src="{{URL::asset(Auth::user()->USRIMG)}}" alt="" class="circle valign profile-image-login">
+            @if(Auth::user()->USRIMG) 
+                <img src="{{URL::asset(Auth::user()->USRIMG)}}" alt="" class="circle valign profile-image-login">
+            @else
+                <img src="{{URL::asset('img/profileImage/default.png')}}" alt="" class="circle valign profile-image-login">
+            @endif
         </div>
         <span class="white-text name center">{{Auth::user()->USRNAME}}</span>
         <span class="white-text email center">{{Auth::user()->USRMAIL}}</span>
