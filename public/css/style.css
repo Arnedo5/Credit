@@ -13,6 +13,7 @@ nav {
   position: relative;
 }
 
+
 /* Navbar btn-card*/
 .container-btn-card {
     position: relative;
@@ -40,6 +41,32 @@ main {
     border-radius: 50%;
     width: 200px;
     height: 200px;
+}
+
+.img-circle-small {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.shadow {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+.tittle-black {
+  color: black;
+  font-weight: bold;
+}
+
+p.italic {
+  font-style: italic;
+  margin: 10px 0px;
+}
+
+.login-form-text {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
 }
 
 .img-container {

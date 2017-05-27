@@ -21,28 +21,28 @@
                                 <div class="row margin">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">perm_identity</i>
-                                        <input id="USRLOGIN" type="text" class="form-control" name="USRLOGIN" value="{{ old('USRLOGIN') }}" required autofocus>
+                                        <input id="USRLOGIN" type="text" class="form-control" name="USRLOGIN" value="{{ old('USRLOGIN') }}" data-length="50" required autofocus>
                                         <label for="USRLOGIN" class="center-align">Nom d'usuari *</label>
                                     </div>
                                 </div>
                                 <div class="row margin">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">mail_outline</i>
-                                        <input id="USRMAIL" type="email" class="form-control" name="USRMAIL" value="{{ old('USRMAIL') }}" required>
+                                        <input id="USRMAIL" type="email" class="form-control" name="USRMAIL" value="{{ old('USRMAIL') }}" data-length="255" required>
                                         <label for="USRMAIL" class="center-align">Correu electronic *</label>
                                     </div>
                                 </div>
                                 <div class="row margin">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">lock_open</i>
-                                        <input id="password" type="password" class="form-control" name="password" required>
+                                        <input id="password" type="password" class="form-control" name="password" data-length="255" required>
                                         <label for="password" class="">Contrasenya *</label>
                                     </div>
                                 </div>
                                 <div class="row margin">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">lock_outline</i>
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" data-length="255" required>
                                         <label for="password-confirm" class="">Confirmar contrasenya *</label>
                                     </div>
                                 </div>
@@ -83,38 +83,38 @@
                                 <div class="row margin">
                                     <div class="input-field col s6">
                                         <i class="material-icons prefix">face</i>
-                                        <input id="USRNAME" type="text" class="form-control" name="USRNAME" value="{{ old('USRNAME') }}" required>
+                                        <input id="USRNAME" type="text" class="form-control" name="USRNAME" value="{{ old('USRNAME') }}" data-length="50" required>
                                         <label for="USRNAME" class="center-align">Nom *</label>
                                     </div>
                                     <div class="input-field col s6">
                                         <i class="material-icons prefix">recent_actors</i>
-                                        <input id="USRLASTNAME" type="text" class="form-control" name="USRLASTNAME" value="{{ old('USRLASTNAME') }}" required>
+                                        <input id="USRLASTNAME" type="text" class="form-control" name="USRLASTNAME" value="{{ old('USRLASTNAME') }}" data-length="100" required>
                                         <label for="USRLASTNAME" class="center-align">Cognoms *</label>
                                     </div>
                                 </div>
                                 <div class="row margin">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">location_city</i>
-                                        <input id="USRCITY" type="text" class="form-control" name="USRCITY" value="{{ old('USRCITY') }}" required>
+                                        <input id="USRCITY" type="text" class="form-control" name="USRCITY" value="{{ old('USRCITY') }}" data-length="50" required>
                                         <label for="USRCITY" class="center-align">Ciutat *</label>
                                     </div>
                                 </div>
                                 <div class="row margin">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">directions</i>
-                                        <input id="USRDIRECTION" type="text" class="form-control" name="USRDIRECTION" value="{{ old('USRDIRECTION') }}" required>
+                                        <input id="USRDIRECTION" type="text" class="form-control" name="USRDIRECTION" value="{{ old('USRDIRECTION') }}" data-length="100" required>
                                         <label for="USRDIRECTION" class="center-align">Dirreció *</label>
                                     </div>
                                 </div>
                                 <div class="row margin">
                                     <div class="input-field col s6">
                                         <i class="material-icons prefix">phone</i>
-                                        <input id="USRMOBILE" type="number" class="form-control" name="USRMOBILE" value="{{ old('USRMOBILE') }}">
+                                        <input id="USRMOBILE" type="number" class="form-control" name="USRMOBILE" data-length="9" value="{{ old('USRMOBILE') }}">
                                         <label for="USRMOBILE" class="center-align">Telèfon mobil</label>
                                     </div>
                                     <div class="input-field col s6">
                                         <i class="material-icons prefix">exposure_zero</i>
-                                        <input id="USRPOSTAL" type="number" class="form-control" name="USRPOSTAL" value="{{ old('USRPOSTAL') }}" required>
+                                        <input id="USRPOSTAL" type="number" class="form-control" name="USRPOSTAL" data-length="5" value="{{ old('USRPOSTAL') }}" required>
                                         <label for="USRPOSTAL" class="center-align">Codi postal *</label>
                                     </div>
                                 </div>

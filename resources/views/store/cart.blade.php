@@ -35,7 +35,7 @@
                                         <th>Producte</th>
                                         <th>Preu Unitat</th>
                                         <th>Unitats</th>
-                                        <th>Total</th>
+                                        <th>Subtotal</th>
                                         <th>Eliminar producte</th>
                                     </tr>
                                 </thead>
@@ -72,8 +72,8 @@
                                     @endforeach
                                     <tr>
                                         <td colspan="4"></td>
-                                        <td c>Suma Total</td>
-                                        <td class="strong ">{{number_format($total,2)}} €</td>
+                                        <td class="tittle-black">Total</td>
+                                        <td class="strong">{{number_format($total,2)}} €</td>
                                         <td colspan="1"></td>
                                     </tr>
                                 </tbody>
@@ -86,12 +86,14 @@
                 <div class="col s12 m12 l12">
                     <div class="card">
                         <div class="card-content row">
-                            <div class="btn-left-cart col s12 m6 l6">
-                                <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('home')}}"><i class="material-icons left">keyboard_arrow_left</i>Continuar comprant</a>
+                            <div class="btn-left-cart col s12 m12 l2">
+                                <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('home')}}"><i class="material-icons left">keyboard_arrow_left</i>Botiga</a>
                             </div>
-                            <div class="btn-right-cart col s12 m6 l6 text-right">
+                            <div class="btn-right-cart col s12 m12 l3 offset-l3">
                                 <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('cart-trash')}}"><i class="material-icons left">delete</i>Buida la cistella</a>
-                                <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('order-detail')}}"><i class="material-icons right">keyboard_arrow_right</i>Continuar</a>
+                            </div>
+                            <div class="btn-right-cart col s12 m12 l3 offset-l1 text-right">
+                                <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('order-detail')}}"><i class="material-icons right">keyboard_arrow_right</i>Continuar</a>                                
                             </div>
                         </div>
                     </div>
