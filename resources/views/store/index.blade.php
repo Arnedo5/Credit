@@ -1,13 +1,12 @@
 @extends('store.template')
 
-
-
 @section('content')
+    <!-- Menu -->
+    @include('store.partials.menu')
+
     <!-- Navbar -->
     @include('store.partials.slider')
 
-    <!-- Menu -->
-    @include('store.partials.menu')
     <!-- Content -->
     <div class="container">
         <div class="row">

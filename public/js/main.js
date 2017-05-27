@@ -53,27 +53,6 @@ $(".btn-update-item").on('click', function (e) {
     window.location.href = href + "/" + quantity;
 });
 
-//Error - Noty
-function createNoty(type,position,message,time) {
-    new Noty({
-        type: type,
-        layout: position,
-        theme: 'relax',
-        text: message,
-        timeout: time,
-        progressBar: true,
-        closeWith: ['click', 'button'],
-        animation: {
-            open: 'noty_effects_open',
-            close: 'noty_effects_close'
-        }
-    }).show()
-}
-
-function redirect() {
-    location.href = "logout";
-}
-
 //Forms login & register
 $('.continue').click(function () {
     $('.transform').animate({
@@ -82,4 +61,32 @@ $('.continue').click(function () {
     }, "slow");
 });
 
-
+//Search in table
+$(document).ready(function() {
+    $('#table').DataTable({
+      "language": {
+            "sProcessing":     "Processant...",
+            "sLengthMenu":     "Mostrar _MENU_ registres",
+            "sZeroRecords":    "No s'han trobat registres",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrant registres del _START_ al _END_ del total de _TOTAL_ registres",
+            "sInfoEmpty":      "Mostrant registres del 0 al 0 d'un total de 0 registres.'",
+            "sInfoFiltered":   "(Filtrant un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primer",
+                "sLast":     "Últim",
+                "sNext":     "Següent",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
+    });
+} );

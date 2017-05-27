@@ -26,6 +26,14 @@ class StoreControler extends Controller
             ->where('PRDSTATUS', true)
             ->get();
 
+        /* Active user */
+        if (auth()->check()) {
+            if (auth()->user()->USRSTATUS != true){
+                $message = 'Usuari inactiu. Contacta amb un administrador de sistema.';
+                return redirect()->route('logout')->with('message', $message);
+            } 
+        }
+
         return view('store.index',compact('products','categories','cart'));
       
     }

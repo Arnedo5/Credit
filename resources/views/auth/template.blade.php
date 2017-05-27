@@ -26,6 +26,8 @@
     <!-- Css -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.login.css')}}">
 
+    <!-- Error JS -->
+    <script src="{{ asset('js/error.js') }}"></script>
 </head>
 <body>
 

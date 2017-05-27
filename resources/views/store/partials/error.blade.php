@@ -26,12 +26,9 @@
 @if ($errors->has('USRMOBILE'))
     <script type="text/javascript">createNoty('error','topRight',"Telèfon incorrecta!",3000)</script>
 @endif
-@if(Auth::check())
-    @if(Auth::user()->USRSTATUS < 1)
-        <script type="text/javascript">
-            redirect();
-        </script>
-        redirect()
-    @endif 
-@endif 
+
+<!-- Error Admin -->
+@if (\Session::get('message'))
+    <script type="text/javascript">createNoty('error','topRight','{{ \Session::get('message') }}',7000)</script>
+@endif
     

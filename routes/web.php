@@ -86,3 +86,25 @@ Route::get('order-detail',[
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 
+//Admin - home - routes
+Route::get('admin/home',[
+    'middleware'=>'auth',
+    'as'=>'admin-home',
+    'uses'=>'Admin\AdminController@index'
+]);
+
+
+//Category - admin - routes
+Route::get('admin/product/category',[
+    'middleware'=>'auth',
+    'as'=>'admin-product-category-index',
+    'uses'=>'Admin\Product\CategoryController@index'
+]);
+
+Route::get('admin/product/category/create',[
+    'middleware'=>'auth',
+    'as'=>'admin-product-category-create',
+    'uses'=>'Admin\Product\CategoryController@create'
+]);
+
+//Route::resource('admin/product/category','Admin\Product\CategoryController');

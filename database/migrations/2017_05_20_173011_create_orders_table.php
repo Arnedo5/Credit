@@ -25,7 +25,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('ORDIDCATEGORY')->references('ORCID')->on('order_categories');
             $table->integer('ORIDREPARE')->unsigned();
             $table->foreign('ORIDREPARE')->references('TIRID')->on('ticket_reparations');
-
+            $table->boolean('ORDSTATUS');
         });
     }
 

@@ -198,6 +198,12 @@ p.italic {
   margin-right: 20px;
 }
 
+.btn-add {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+}
+
 .btn-clear {
   background-color: #2B2F38;
 }
@@ -239,7 +245,18 @@ p.italic {
   background-color: #e0e0e0;
 }
 
-.card-content .p-opinions {
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    color: white;
+    margin-right: 24px;
+    transition: color .3s ease;
+    text-transform: none;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
+    color: #9e9e9e ;
+}
+
+.p-opinions {
   display: flex; 
 }
 

@@ -24,7 +24,7 @@ class CreateTicketsTable extends Migration
             $table->foreign('TICIDUSER')->references('USRID')->on('users');
             $table->integer('TICIDADMINISTRATOR')->unsigned();
             $table->foreign('TICIDADMINISTRATOR')->references('USRID')->on('users');
-            $table->string('TICNAME', 50);
+            $table->string('TICNAME', 100);
             $table->string('TICDESCRIPTION', 350);
             $table->string('TICADMINMESSAGE', 350);
             $table->boolean('TICSTATUS');

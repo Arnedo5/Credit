@@ -15,7 +15,7 @@
                     @if(Auth::user()->USRTYPE ===  'user')
                         <li><a href="#!">Panell d'usuari</a></li>
                     @else
-                        <li><a href="#!">Panell d'administrador</a></li>
+                        <li><a href="{{route('admin-home')}}">Panell d'administrador</a></li>
                     @endif
                     <li><a href="{{route('logout')}}">Desconnectar</a></li>
                 @else
