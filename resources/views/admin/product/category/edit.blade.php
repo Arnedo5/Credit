@@ -10,12 +10,14 @@
             <div class="col s12 m4 l6 offset-l3">
                 <div class="card">
                     <div class="card-content">
-                        {!! Form::open(['route'=>'category.store']) !!}
+                        {!! Form::model($category, ['route' => ['category.update', $category->PRCID]])!!}
+                            <input type="hidden" name="PRCID" value="{{$category->PRCID}}"> 
+                            <input type="hidden" name="_method" value="PUT"> 
                             <!-- Name -->
                             <div class="row margin">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">assignment</i>
-                                    <input id="PRCNAME" type="text" class="form-control" name="PRCNAME" value="{{ old('PRCNAME') }}" required autofocus>
+                                    <input id="PRCNAME" type="text" class="form-control" name="PRCNAME" value="{{$category->PRCNAME}}" required autofocus>
                                     <label for="PRCNAME" class="center-align">Nom de la categoria</label>
                                 </div>
                             </div>
@@ -23,7 +25,7 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                  <i class="material-icons prefix">description</i>
-                                    <textarea id="PRCDESCRIPTION" class="materialize-textarea" name='PRCDESCRIPTION' value="{{ old('PRCDESCRIPTION') }}"></textarea>
+                                    <textarea id="PRCDESCRIPTION" class="materialize-textarea" name='PRCDESCRIPTION' value="">{{isset($category->PRCDESCRIPTION) ? $category->PRCDESCRIPTION : null}}</textarea>
                                     <label for="PRCDESCRIPTION">Textarea</label>
                                 </div>
                             </div>
@@ -31,7 +33,7 @@
                             <div class="row margin">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">collections</i>
-                                    <input id="PRCIMG" type="text" class="form-control" name="PRCIMG" value="{{ old('PRCIMG') }}" required>
+                                    <input id="PRCIMG" type="text" class="form-control" name="PRCIMG" value="{{$category->PRCIMG}}" required>
                                     <label for="PRCIMG" class="center-align">Imatge</label>
                                     <div class="col s12 m4 l11 offset-l1">
                                         <p class="margin medium-small">Troba la teva imatge a <a target="_blank" href="https://material.io/icons/">Google Icons</a>. Insereix nomes el <b class="tittle-black">nom de la imatge</b></p>
@@ -43,9 +45,9 @@
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">lock_open</i>
                                     <select id="PRCSTATUS" name="PRCSTATUS" required>
-                                        <option value="" selected>Selecciona un estat</option>
-                                        <option value="1">Actiu</option>
-                                        <option value="0">Inactiu</option>
+                                        <option value="" >Selecciona un estat</option>
+                                        <option value="1" {{$category->PRCSTATUS === 1 ? "selected" : null}}>Actiu</option>
+                                        <option value="0" {{$category->PRCSTATUS === 0 ? "selected" : null}}>Inactiu</option>
                                     </select>
                                     <label>Estat</label>
                                 </div>
@@ -53,7 +55,7 @@
                             <!-- BUtton -->
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
-                                    <button type="submit" class="btn btn-primary btn-summit">Nova categoria</button>
+                                    <button type="submit" class="btn btn-primary btn-summit">Editar categoria</button>
                                 </div>
                             </div>
                             <div class="row">
@@ -61,7 +63,7 @@
                                     <p class="margin medium-small"><a href="{{ route('category.index') }}">Productes</a></p>
                                 </div>
                                 <div class="input-field col s6 m6 l6">
-                                    <p class="margin medium-small"><a href="{{route('category.index')}}">Categories</a></p>
+                                    <p class="margin medium-small"><a href="{{ route('category.index') }}">Categories</a></p>
                                 </div>          
                             </div>
                         {!! Form::close() !!}

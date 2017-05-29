@@ -198,6 +198,10 @@ p.italic {
   margin-right: 20px;
 }
 
+.btn-summit {
+    width: 100%;
+}
+
 .btn-add {
     position: absolute;
     top: 15px;

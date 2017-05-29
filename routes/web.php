@@ -22,6 +22,9 @@ Route::bind('product',function($PRDNUM){
     return App\Product::where('PRDNUM',$PRDNUM)->first();
 });
 
+Route::bind('category', function ($category) {
+    return App\ProductCategory::find($category);
+});
 
 Route::get('/',[
     'as' => 'home',
@@ -93,8 +96,10 @@ Route::get('admin/home',[
     'uses'=>'Admin\AdminController@index'
 ]);
 
+Route::resource('admin/product/category', 'Admin\Product\CategoryController');
 
 //Category - admin - routes
+/*
 Route::get('admin/product/category',[
     'middleware'=>'auth',
     'as'=>'admin-product-category-index',
@@ -106,5 +111,24 @@ Route::get('admin/product/category/create',[
     'as'=>'admin-product-category-create',
     'uses'=>'Admin\Product\CategoryController@create'
 ]);
+
+Route::post('admin/product/category/show',[
+    'middleware'=>'auth',
+    'as'=>'admin-product-category-show',
+    'uses'=>'Admin\Product\CategoryController@store'
+]);
+
+Route::get('admin/product/category/edit/{PRCID}',[
+    'middleware'=>'auth',
+    'as'=>'admin-product-category-edit',
+    'uses'=>'Admin\Product\CategoryController@edit'
+]);
+
+Route::get('admin/product/category/update',[
+    'middleware'=>'auth',
+    'as'=>'admin-product-category-update',
+    'uses'=>'Admin\Product\CategoryController@update'
+]);
+*/
 
 //Route::resource('admin/product/category','Admin\Product\CategoryController');

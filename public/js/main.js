@@ -90,3 +90,9 @@ $(document).ready(function() {
         }
     });
 } );
+
+//Select box - form
+$(document).ready(function() {
+    $('select').material_select();
+});
+    

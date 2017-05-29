@@ -1,4 +1,5 @@
 
+<!-- Form register -->
 @if ($errors->has('USRLOGIN'))
     <script type="text/javascript">createNoty('error','topRight','Usuari incorrecta!',4000)</script>
 @endif
@@ -31,4 +32,12 @@
 @if (\Session::get('message'))
     <script type="text/javascript">createNoty('error','topRight','{{ \Session::get('message') }}',7000)</script>
 @endif
+
+@if (\Session::get('status'))
+    <script type="text/javascript">createNoty('success','topRight','{{ \Session::get('status') }}',7000)</script>
+@endif
     
+<!-- Product Category -->
+@if ($errors->has('PRCNAME'))
+    <script type="text/javascript">createNoty('error','topRight',"Categoria de producte ja activa",3000)</script>
+@endif

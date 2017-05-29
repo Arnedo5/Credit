@@ -25,7 +25,7 @@
                                     </p>
                                     <div class="divider-mini"></div>
                                     <p class="p-opinions white-text"><i class="material-icons">keyboard_arrow_right</i>
-                                        <a href="{{route('admin-product-category-index')}}"><span class="opinions">Categories</span></a>
+                                        <a href="{{ route('category.index') }}"><span class="opinions">Categories</span></a>
                                     </p>
                                 </div>
                             </div>

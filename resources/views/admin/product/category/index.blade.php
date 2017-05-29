@@ -12,7 +12,7 @@
                     <div class="card-content">
                         <p class="p-opinions"><i class="material-icons">grade</i>
                             <span class="opinions">Productes - categories</span>
-                            <a href="{{route('admin-product-category-create')}}" class="waves-effect waves-light btn btn-add blue-grey darken-1"><i class="material-icons">add</i></a>
+                            <a href="{{route('category.create')}}" class="waves-effect waves-light btn btn-add blue-grey darken-1"><i class="material-icons">add</i></a>
                             <div class="divider"></div>
                     </div>
                 </div>
@@ -36,14 +36,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($categories as $item)
+                                @foreach($categories as $category)
                                     <tr>
-                                        <td>{{$item->PRCNUM}}</td>
-                                        <td>{{$item->PRCNAME}}</td>
-                                        <td>{{$item->PRCDESCRIPTION}}</td>
-                                        <td>{{$item->PRCIMG}}</td>
-                                        <td>{{$item->PRCSTATUS}}</td>
-                                        <td><bottom class="waves-effect waves-light btn blue"><i class="material-icons">mode_edit</i></bottom></td>
+                                        <td>{{$category->PRCNUM}}</td>
+                                        <td>{{$category->PRCNAME}}</td>
+                                        <td>{{$category->PRCDESCRIPTION}}</td>
+                                        <td>{{$category->PRCIMG}}</td>
+                                        <td>{{$category->PRCSTATUS}}</td>
+                                        <td><a class="waves-effect waves-light btn blue" href="{{ route('category.edit', $category) }}"><i class="material-icons">mode_edit</i></a></td>
                                         <td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>
                                      </tr>
                                 @endforeach
@@ -54,5 +54,4 @@
             </div>
         </div>
     </div>
-
 @stop
