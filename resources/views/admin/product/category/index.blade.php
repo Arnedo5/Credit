@@ -41,10 +41,18 @@
                                         <td>{{$category->PRCNUM}}</td>
                                         <td>{{$category->PRCNAME}}</td>
                                         <td>{{$category->PRCDESCRIPTION}}</td>
-                                        <td>{{$category->PRCIMG}}</td>
-                                        <td>{{$category->PRCSTATUS}}</td>
-                                        <td><a class="waves-effect waves-light btn blue" href="{{ route('category.edit', $category) }}"><i class="material-icons">mode_edit</i></a></td>
-                                        <td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>
+                                        <td><i class="material-icons">{{$category->PRCIMG}}</i></td>
+                                        <td>{{$category->PRCSTATUS === 1 ? 'Activa' : 'Inactiva'}}</td>
+                                        <td><a class="waves-effect waves-light btn purple" href="{{route('category.edit', $category->PRCID)}}"><i class="material-icons">mode_edit</i></a></td>
+                                        <!--<td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>-->
+                                        <td>
+                                            {!! Form::open(['route' => ['category.destroy', $category->PRCID]]) !!}
+                                            {{ Form::hidden('_method', 'DELETE') }}
+                                            <button onClick="return confirm('Vol eliminar la categoria?')" class="waves-effect waves-light btn purple darken-2">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                            {!! Form::close() !!}
+                                        </td>
                                      </tr>
                                 @endforeach
                             </tbody>

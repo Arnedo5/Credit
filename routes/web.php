@@ -23,7 +23,7 @@ Route::bind('product',function($PRDNUM){
 });
 
 Route::bind('category', function ($category) {
-    return App\ProductCategory::find($category);
+    return App\ProductCategory::where('PRCID',$category)->first();
 });
 
 Route::get('/',[
@@ -97,6 +97,8 @@ Route::get('admin/home',[
 ]);
 
 Route::resource('admin/product/category', 'Admin\Product\CategoryController');
+
+Route::resource('admin/product', 'Admin\Product\ProductCOntroller');
 
 //Category - admin - routes
 /*

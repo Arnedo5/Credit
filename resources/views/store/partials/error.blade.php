@@ -41,3 +41,8 @@
 @if ($errors->has('PRCNAME'))
     <script type="text/javascript">createNoty('error','topRight',"Categoria de producte ja activa",3000)</script>
 @endif
+
+<!-- Products -->
+@if ($errors->has('PRDNAME'))
+    <script type="text/javascript">createNoty('error','topRight',"Comprova el nom del producte",3000)</script>
+@endif

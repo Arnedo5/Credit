@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-content">
                         {!! Form::model($category, ['route' => ['category.update', $category->PRCID]])!!}
-                            <input type="hidden" name="PRCID" value="{{$category->PRCID}}"> 
+
                             <input type="hidden" name="_method" value="PUT"> 
                             <!-- Name -->
                             <div class="row margin">

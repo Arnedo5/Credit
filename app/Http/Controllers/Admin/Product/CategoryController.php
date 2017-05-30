@@ -29,7 +29,8 @@ class CategoryController extends Controller
             return redirect()->route('home')->with('message', $message);
         }
 
-        $categories =  DB::table('product_categories')->get();
+        //$categories =  DB::table('product_categories')->get();
+        $categories = ProductCategory::all();
 
         //dd($categories);
         return view('admin.product.category.index',compact('categories'));
@@ -37,11 +38,23 @@ class CategoryController extends Controller
 
     //View create product category
     public function create() {
+
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
         return view('admin.product.category.create');
     }
 
     public function store(Request $request)
     {
+
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
         $this->validate($request, [
           'PRCNAME' => 'required|unique:product_categories|max:50',
           'PRCDESCRIPTION' => 'max:350',
@@ -61,24 +74,38 @@ class CategoryController extends Controller
             'PRCSTATUS' => $request->get('PRCSTATUS')
         ]);
 
-        $status = $category ? 'Categoria afegida correctament' : "La categoria no s'ha pogut afegir. COmprova les dades";
+        $status = $category ? 'Categoria afegida correctament' : "La categoria no s'ha pogut afegir. Comprova les dades";
 
         return redirect()->route('category.index')->with('status', $status);
     }
 
     public function show(ProductCategory $category)
     {
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
         return $category;
     }
 
     public function edit(ProductCategory $category)
     {
-        //dd($category->PRCNAME);
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
         return view('admin.product.category.edit',compact('category'));
     }
 
     public function update(Request $request,ProductCategory $category)
     {
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
         $this->validate($request, [
             'PRCNAME' => 'required|max:50',
             'PRCDESCRIPTION' => 'max:350',
@@ -86,10 +113,39 @@ class CategoryController extends Controller
             'PRCSTATUS' => 'required',
         ]);
 
-        $flight = ProductCategory::find($category->PRCID);
+        $update = DB::table('product_categories')
+            ->where('PRCID', $category->PRCID)
+            ->update(
+                ['PRCDESCRIPTION' =>  $request->PRCDESCRIPTION,
+                'PRCNAME' =>  $request->PRCNAME,
+                'PRCIMG' =>  $request->PRCIMG,
+                'PRCSTATUS' =>  $request->PRCSTATUS
+                ]);
+        
+        $status = $update ? 'Categoria modificada correctament' : "La categoria no s'ha pogut modificar. Comprova les dades";
 
-        $category->fill($request->all());
-
-        $updated = $category->save();
+        return redirect()->route('category.index')->with('status', $status);
+        
     }
+
+    public function destroy(ProductCategory $category)
+    {
+        
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
+        //$deleted = $category->delete();
+        $deleted = DB::table('product_categories')
+            ->where('PRCID', $category->PRCID)
+            ->delete();
+
+         $status = $deleted ? 'Categoria eliminada correctament.' : "La categoria no s'ha podut eliminar";
+        
+        return redirect()->route('category.index')->with('status', $status);
+        
+    }
+
+    
 }

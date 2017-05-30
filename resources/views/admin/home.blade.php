@@ -21,7 +21,7 @@
                             <div class="card-action purple darken-2">
                                 <div id="clients-bar">
                                     <p class="p-opinions white-text"><i class="material-icons">keyboard_arrow_right</i>
-                                        <a href="{{route('home')}}"><span class="opinions">Productes</span></a>
+                                        <a href="{{route('product.index')}}"><span class="opinions">Productes</span></a>
                                     </p>
                                     <div class="divider-mini"></div>
                                     <p class="p-opinions white-text"><i class="material-icons">keyboard_arrow_right</i>

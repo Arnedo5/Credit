@@ -90,7 +90,7 @@
                                 <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('home')}}"><i class="material-icons left">keyboard_arrow_left</i>Botiga</a>
                             </div>
                             <div class="btn-right-cart col s12 m12 l3 offset-l3">
-                                <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('cart-trash')}}"><i class="material-icons left">delete</i>Buida la cistella</a>
+                                <a onClick="return confirm('Vols buidar la cistella?')" class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('cart-trash')}}"><i class="material-icons left">delete</i>Buida la cistella</a>
                             </div>
                             <div class="btn-right-cart col s12 m12 l3 offset-l1 text-right">
                                 <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('order-detail')}}"><i class="material-icons right">keyboard_arrow_right</i>Continuar</a>                                
