@@ -15,7 +15,7 @@
                             <div class="row margin">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">assignment</i>
-                                    <input id="PRCNAME" type="text" class="form-control" name="PRCNAME" value="{{ old('PRCNAME') }}" required autofocus>
+                                    <input id="PRCNAME" type="text" class="form-control" name="PRCNAME" value="{{ old('PRCNAME') }}" data-length="50" required autofocus>
                                     <label for="PRCNAME" class="center-align">Nom de la categoria</label>
                                 </div>
                             </div>
@@ -23,8 +23,8 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                  <i class="material-icons prefix">description</i>
-                                    <textarea id="PRCDESCRIPTION" class="materialize-textarea" name='PRCDESCRIPTION' value="{{ old('PRCDESCRIPTION') }}"></textarea>
-                                    <label for="PRCDESCRIPTION">Textarea</label>
+                                    <textarea id="PRCDESCRIPTION" class="materialize-textarea" name='PRCDESCRIPTION' data-length="350" value="{{ old('PRCDESCRIPTION') }}"></textarea>
+                                    <label for="PRCDESCRIPTION">Descripció</label>
                                 </div>
                             </div>
                             <!-- Image -->
@@ -58,10 +58,10 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s6 m6 l6">
-                                    <p class="margin medium-small"><a href="{{ route('category.index') }}">Productes</a></p>
+                                    <p class="margin medium-small"><a href="{{ route('product.index') }}">Productes</a></p>
                                 </div>
                                 <div class="input-field col s6 m6 l6">
-                                    <p class="margin medium-small"><a href="{{route('category.index')}}">Categories</a></p>
+                                    <p class="margin medium-small right"><a href="{{route('category.index')}}">Categories</a></p>
                                 </div>          
                             </div>
                         {!! Form::close() !!}

@@ -136,6 +136,17 @@ class CategoryController extends Controller
             return redirect()->route('home')->with('message', $message);
         }
 
+        //Search products in ctaegory
+        $products = DB::table('products')
+            ->where('PRDIDCATEGORY', $category->PRCID)
+            ->get();
+
+        if($products->count()) {
+            $message = "No es pot eliminar una categoria que te productes associada a ella.";
+        
+            return redirect()->route('category.index')->with('message', $message);
+        }
+
         //$deleted = $category->delete();
         $deleted = DB::table('product_categories')
             ->where('PRCID', $category->PRCID)
@@ -144,8 +155,5 @@ class CategoryController extends Controller
          $status = $deleted ? 'Categoria eliminada correctament.' : "La categoria no s'ha podut eliminar";
         
         return redirect()->route('category.index')->with('status', $status);
-        
     }
-
-    
 }

@@ -100,6 +100,14 @@ Route::resource('admin/product/category', 'Admin\Product\CategoryController');
 
 Route::resource('admin/product', 'Admin\Product\ProductCOntroller');
 
+//User - home - routes
+Route::get('user/home',[
+    'middleware'=>'auth',
+    'as'=>'user-home',
+    'uses'=>'Users\UserController@index'
+]);
+
+
 //Category - admin - routes
 /*
 Route::get('admin/product/category',[

@@ -25,6 +25,11 @@ class ProductController extends Controller
 
     public function index()
     {
+         if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
         $products = Product::all();
         
         $categories = $this->getCategories();
@@ -63,36 +68,18 @@ class ProductController extends Controller
           'PRDSTATUS' => 'required',
         ]);
         */
+
+        //Search all products
         $products = DB::table('products')
             ->count();
         $products++;
 
-        //Upload image
-        if($request->hasFile('PRDIMG')) {
-			$avatar = $request->file('PRDIMG');
-
-            if (str_contains($request->PRDIMG->getClientOriginalName(), ['jpg','PNG','jpeg', 'png','bmp','gif','svg'])) {
-				$filename = 'product'.$products.'.png';
-                Image::make($avatar)->save( public_path('/img/products/' . $filename ) );
-                /* For resize img - add
-                    ->resize(800, 800)
-                */
-			}
-        }
-
-        /* Url image for Mysql*/
-        $products = DB::table('products')
-            ->count();
-        $products++;
-
-        $urlImage = 'img/products/product'.$products.'.png';
+        $urlImage = $this->uploadImg($request, $products);
 
         /* Num product */
         $countProduct = DB::table('products')
             ->count();
         $countProduct++;
-
-
 
         /* Crete product */
         $category = Product::create([
@@ -111,9 +98,93 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('status', $status);
     }
 
+    public function edit(Product $product)
+    {
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
+        $categories = ProductCategory::all();
+
+        return view('admin.product.edit',compact('product','categories'));
+    }
+
+    public function update(Request $request,Product $product)
+    {
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
+        //Product - image
+        if($request->PRDIMG) {
+             $products = $product->PRDNUM;
+             $urlImage = $this->uploadImg($request, $products);
+        } else {
+            $urlImage = $product->PRDIMG;
+        }
+
+        $update = DB::table('products')
+            ->where('PRDID', $product->PRDID)
+            ->update(
+                ['PRDIDCATEGORY' =>  $request->PRDIDCATEGORY,
+                'PRDNAME' =>  $request->PRDNAME,
+                'PRDDESCRIPTION' =>  $request->PRDDESCRIPTION,
+                'PRDIMG' =>  $urlImage,
+                'PRDSTOCK' =>  $request->PRDSTOCK,
+                'PRDPRICE' =>  $request->PRDPRICE,
+                'PRDSTATUS' =>  $request->PRDSTATUS
+                ]);
+        
+        $status = $update ? 'Producte modificada correctament' : "El producte no s'ha pogut modificar. Comprova les dades";
+
+        return redirect()->route('product.index')->with('status', $status);
+    }
+
+    public function destroy(Product $product)
+    {
+        
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
+        //$deleted = $category->delete();
+        $deleted = DB::table('products')
+            ->where('PRDID', $product->PRDID)
+            ->delete();
+
+         $status = $deleted ? 'Producte eliminat correctament.' : "El producte no s'ha pogut eliminar";
+        
+        return redirect()->route('product.index')->with('status', $status);
+        
+    }
+
+
+    //Private functions
     private function getCategories()
     {
         return  ProductCategory::all();
+    }
+
+    private function uploadImg(Request $request, $products)
+    {
+        
+        //Upload image
+        if($request->hasFile('PRDIMG')) {
+			$avatar = $request->file('PRDIMG');
+
+            if (str_contains($request->PRDIMG->getClientOriginalName(), ['jpg','PNG','jpeg', 'png','bmp','gif','svg'])) {
+				$filename = 'product'.$products.'.png';
+                Image::make($avatar)->save( public_path('/img/products/' . $filename ) );
+                /* For resize img - add
+                    ->resize(800, 800)
+                */
+			}
+        }
+
+        return 'img/products/product'.$products.'.png';
     }
 
 }

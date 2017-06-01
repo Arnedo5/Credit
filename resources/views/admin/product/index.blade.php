@@ -56,12 +56,15 @@
                                         <td>{{$product->PRDSTOCK}}</td>   
                                         <td>{{number_format($product->PRDPRICE,2)}}</td>
                                         <td>{{$product->PRDSTATUS === 1 ? 'Actiu' : 'Inactiu'}}</td>
-                                        <td><a class="waves-effect waves-light btn purple darken-2" href=""><i class="material-icons">mode_edit</i></a></td>
+                                        <td><a class="waves-effect waves-light btn purple darken-2" href="{{route('product.edit', $product->PRDNUM)}}"><i class="material-icons">mode_edit</i></a></td>
                                         <!--<td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>-->
                                         <td>
-                                            <button onClick="return confirm('Vol eliminar la categoria?')" class="waves-effect waves-light btn purple darken-4">
+                                            {!! Form::open(['route' => ['product.destroy', $product->PRDNUM]]) !!}
+                                            {{ Form::hidden('_method', 'DELETE') }}
+                                            <button onClick="return confirm('Vol eliminar el producte?')" class="waves-effect waves-light btn purple darken-2">
                                                 <i class="material-icons">delete</i>
                                             </button>
+                                            {!! Form::close() !!}
                                         </td>
                                      </tr>
                                      <div id="{{'modal'.$a}}" class="modal">
