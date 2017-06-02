@@ -45,7 +45,7 @@
                             <!-- Image-->
                             <div class="row">
                                 <div class="file-field input-field col s12">
-                                    <div class="btn">
+                                    <div class="btn indigo">
                                         <span>Imatge</span>
                                         <input id="PRDIMG" type="file" name="PRDIMG" required>
                                     </div>
@@ -82,7 +82,7 @@
                             <!-- Button -->
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
-                                    <button type="submit" class="btn btn-primary btn-summit">Nou producte</button>
+                                    <button type="submit" class="btn btn-primary btn-summit indigo">Nou producte</button>
                                 </div>
                             </div>
                             <div class="row">

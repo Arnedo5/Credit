@@ -53,7 +53,7 @@
                             <!-- BUtton -->
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
-                                    <button type="submit" class="btn btn-primary btn-summit">Nova categoria</button>
+                                    <button type="submit" class="btn btn-primary btn-summit indigo">Nova categoria</button>
                                 </div>
                             </div>
                             <div class="row">

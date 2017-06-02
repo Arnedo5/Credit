@@ -15,7 +15,7 @@
                                 <div class="row">
                                     <div class="input-field col s12 center">
                                         <img src="img/login/login.png" alt="" class="img-circle valign profile-image-login">
-                                        <p class="center login-form-text">Registrat!</p>
+                                        <p class="center login-form-text">Registra't!</p>
                                     </div>
                                 </div>
                                 <div class="row margin">
@@ -49,7 +49,7 @@
                                 <div class="row">
                                     <div class="input-field col s12 m12 l12">
                                         <!-- <button type="submit" class="btn btn-primary btn-summit">Següent</button> -->
-                                        <a class="continue btn btn-primary btn-summit">Següent</a>
+                                        <a class="continue btn btn-primary btn-summit indigo">Següent</a>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="file-field input-field col s12">
-                                        <div class="btn">
+                                        <div class="btn indigo">
                                             <span>Imatge</span>
                                             <input id="USRIMG" type="file" name="USRIMG">
                                         </div>
@@ -120,10 +120,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12 m6 l6">
-                                        <a class="continue btn btn-primary btn-summit">Anterior</a>
+                                        <a class="continue btn btn-primary btn-summit indigo">Anterior</a>
                                     </div>
                                     <div class="input-field col s12 m6 l6">
-                                        <button type="submit" class="btn btn-primary btn-summit">Registrat</button>
+                                        <button type="submit" class="btn btn-primary btn-summit indigo">Registrat</button>
                                     </div>
                                 </div>
                             </div>

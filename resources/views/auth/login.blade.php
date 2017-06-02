@@ -36,7 +36,7 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
-                                    <button type="submit" class="btn btn-primary btn-summit">Login</button>
+                                    <button type="submit" class="btn btn-primary btn-summit indigo">Login</button>
                                 </div>
                             </div>
                             <div class="row">
@@ -44,7 +44,7 @@
                                     <p class="margin medium-small"><a href="{{ route('home') }}">Pàgina principal</a></p>
                                 </div>
                                 <div class="input-field col s6 m6 l6">
-                                    <p class="margin right-align medium-small"><a href="{{route('register')}}">Registrat!</a></p>
+                                    <p class="margin right-align medium-small"><a href="{{route('register')}}">Registra't!</a></p>
                                 </div>          
                             </div>
                         </form>

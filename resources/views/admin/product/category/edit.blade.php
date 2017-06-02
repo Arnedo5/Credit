@@ -54,7 +54,7 @@
                             <!-- BUtton -->
                             <div class="row">
                                 <div class="input-field col s12 m12 l12">
-                                    <button type="submit" class="btn btn-primary btn-summit">Editar categoria</button>
+                                    <button type="submit" class="btn btn-primary btn-summit indigo">Editar categoria</button>
                                 </div>
                             </div>
                             <div class="row">

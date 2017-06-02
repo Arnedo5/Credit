@@ -5,7 +5,22 @@
     <!-- Menu -->
     @include('admin.partials.menu')
 
+    <!-- Content -->
     <div class="container">
+        <!-- Tittle -->
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="p-opinions"><i class="material-icons">important_devices</i>
+                            <span class="opinions">Benvingut/da - {{Auth::user()->USRNAME}}</span>
+                        </p>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Containers -->
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="row">
@@ -100,7 +115,25 @@
                  </div>
             </div>    
         </div>
+        <!-- Bottom content -->
+         <div class="row">
+            <div class="col s12 m6 l6">
+                <ul class="collapsible " data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header active"><i class="material-icons">shopping_basket</i>Últimes comandes</div>
+                        <div class="collapsible-body"><span>Últimes comandes</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col s12 m6 l6">
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header active"><i class="material-icons">question_answer</i>Últims missatges</div>
+                        <div class="collapsible-body"><span>Últims missatges</span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-
 @stop
 
