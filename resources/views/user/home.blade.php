@@ -1,5 +1,5 @@
 
-@extends('admin.template')
+@extends('user.template')
 
 @section('content')
     <!-- Menu -->
