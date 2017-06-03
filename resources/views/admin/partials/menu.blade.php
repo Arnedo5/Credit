@@ -17,7 +17,7 @@
         <li><a href="{{route('product.index')}}"><i class="material-icons">shopping_cart</i>Productes</a></li>
         <li><a href="{{route('home')}}"><i class="material-icons">shopping_basket</i>Comandes</a></li>
         <li><a href="{{route('home')}}"><i class="material-icons">question_answer</i>Tickets</a></li>
-        <li><a href="{{route('home')}}"><i class="material-icons">perm_identity</i>Usuaris</a></li>
+        <li><a href="{{route('user.index')}}"><i class="material-icons">perm_identity</i>Usuaris</a></li>
     <div class="divider-mini"></div>
 </ul>
 <div class="vertical-menu">

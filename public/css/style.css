@@ -335,6 +335,12 @@ p.italic {
   height: 150px;
 }
 
+.table-img-mini {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
 .container-quantity {
   display: flex;
     align-items: center;
@@ -384,3 +390,6 @@ header, main, footer {
   background-color: #21252B;
 }
 
+.second-step {
+  display: none;
+}

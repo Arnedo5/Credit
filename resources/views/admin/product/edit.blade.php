@@ -24,7 +24,7 @@
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">lock_open</i>
                                     <select id="PRDIDCATEGORY" name="PRDIDCATEGORY" required>
-                                        <option value="" selected>Selecciona un estat</option>
+                                        <option value="" selected>Selecciona una categoria</option>
                                         @foreach($categories as $category)
                                             <option value="{{$category->PRCID}}" {{$product->PRDIDCATEGORY === $category->PRCID ? "selected" : null}}>{{$category->PRCNAME}}</option>
                                         @endforeach

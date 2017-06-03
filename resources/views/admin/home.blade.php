@@ -52,13 +52,17 @@
                             <div class="card-content deep-purple white-text center">
                                 <p class="card-stats-title"><i class="material-icons tiny">shopping_basket</i> Comandes actives</p>
                                 <h4 class="card-stats-number">{{count($orderActive)}}</h4>
-                                <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i>{{count($orderInactive)}}<span class="green-text text-lighten-5"> completades</span>
+                                <p class="card-stats-compare"><i class="mdi-hardware-keyboard-arrow-up"></i>{{count($orderInactive)}}<span class="green-text text-lighten-5"> realitzades</span>
                                 </p>
                             </div>
                             <div class="card-action deep-purple darken-2">
                                 <div id="clients-bar">
                                     <p class="p-opinions white-text"><i class="material-icons">keyboard_arrow_right</i>
-                                        <a href="{{route('home')}}"><span class="opinions">Comandes</span></a>
+                                        <a href="{{route('order.index')}}"><span class="opinions">Comandes</span></a>
+                                    </p>
+                                    <div class="divider-mini"></div>
+                                    <p class="p-opinions white-text"><i class="material-icons">keyboard_arrow_right</i>
+                                        <a href="{{route('home')}}"><span class="opinions">Línies de factura</span></a>
                                     </p>
                                     <div class="divider-mini"></div>
                                     <p class="p-opinions white-text"><i class="material-icons">keyboard_arrow_right</i>
@@ -106,7 +110,7 @@
                             <div class="card-action blue darken-2">
                                 <div id="clients-bar">
                                     <p class="p-opinions white-text"><i class="material-icons">keyboard_arrow_right</i>
-                                        <a href="{{route('home')}}"><span class="opinions">Usuaris</span></a>
+                                        <a href="{{route('user.index')}}"><span class="opinions">Usuaris</span></a>
                                     </p>
                                 </div>
                             </div>

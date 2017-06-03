@@ -26,6 +26,14 @@ Route::bind('category', function ($category) {
     return App\ProductCategory::where('PRCID',$category)->first();
 });
 
+Route::bind('order', function ($order) {
+    return App\Order::where('ORDID',$order)->first();
+});
+
+Route::bind('user', function ($user) {
+    return App\User::where('USRID',$user)->first();
+});
+
 Route::get('/',[
     'as' => 'home',
     'uses' => 'StoreControler@index'
@@ -96,9 +104,15 @@ Route::get('admin/home',[
     'uses'=>'Admin\AdminController@index'
 ]);
 
+Route::resource('admin/product', 'Admin\Product\ProductController');
+
 Route::resource('admin/product/category', 'Admin\Product\CategoryController');
 
-Route::resource('admin/product', 'Admin\Product\ProductCOntroller');
+Route::resource('admin/order', 'Admin\Order\OrderController');
+
+Route::resource('admin/user', 'Admin\UserController');
+
+
 
 //User - home - routes
 Route::get('user/home',[

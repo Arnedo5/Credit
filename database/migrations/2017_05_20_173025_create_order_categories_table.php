@@ -15,6 +15,7 @@ class CreateOrderCategoriesTable extends Migration
     {
         Schema::create('order_categories', function (Blueprint $table) {
             $table->increments('ORCID');
+            $table->integer('ORCNUM');
             $table->string('ORCNAME', 50);
             $table->string('ORCDESCRIPTION', 350);
             $table->boolean('ORCSTATUS');

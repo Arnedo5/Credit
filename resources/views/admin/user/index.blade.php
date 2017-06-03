@@ -11,8 +11,8 @@
                 <div class="card">
                     <div class="card-content">
                         <p class="p-opinions"><i class="material-icons">grade</i>
-                            <span class="opinions">Productes</span>
-                            <a href="{{route('product.create')}}" class="waves-effect waves-light btn btn-add blue-grey darken-1"><i class="material-icons">add</i></a>
+                            <span class="opinions">Usuaris</span>
+                            <a href="{{route('user.create')}}" class="waves-effect waves-light btn btn-add blue-grey darken-1"><i class="material-icons">add</i></a>
                             <div class="divider"></div>
                     </div>
                 </div>
@@ -27,39 +27,34 @@
                             <thead>
                                 <tr>
                                     <th>Num</th>
-                                    <th>Categoria</th>
-                                    <th>Nom</th>
-                                    <th>Descripció</th>
                                     <th>Imatge</th>
-                                    <th>Stock</th>
-                                    <th>Preu€</th>
+                                    <th>Tipus</th>
+                                    <th>Nom</th>
+                                    <th>Cognoms</th>
+                                    <th>Correu electrònic</th>
                                     <th>Estat</th>
+                                    <th>Informació detallada</th>
                                     <th>Editar</th>
                                     <th>Eliminar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $a = 1; ?>
-                                @foreach($products as $product)
+                                @foreach($users as $user)
                                     <tr>
-                                        <td>{{$product->PRDNUM}}</td>
-                                        @foreach($categories as $category)
-                                            @if($category->PRCID  === $product->PRDIDCATEGORY)
-                                                <td>{{$category->PRCNAME}}</td>
-                                            @endif
-                                        @endforeach
-                                        <td>{{$product->PRDNAME}}</td>
-                                        <td><a class="waves-effect waves-light btn purple" href="{{'#modal'.$a}}"><i class="material-icons">search</i></a></td>
-                                        <td><img class="table-img materialboxed"src="../{{$product->PRDIMG}}"></td>
-                                        <td>{{$product->PRDSTOCK}}</td>   
-                                        <td>{{number_format($product->PRDPRICE,2)}}</td>
-                                        <td>{{$product->PRDSTATUS === 1 ? 'Actiu' : 'Inactiu'}}</td>
-                                        <td><a class="waves-effect waves-light btn purple darken-2" href="{{route('product.edit', $product->PRDNUM)}}"><i class="material-icons">mode_edit</i></a></td>
-                                        <!--<td><a class="waves-effect waves-light btn red"><i class="material-icons">delete</i></a></td>-->
+                                        <td>{{$user->USRNUM}}</td>
+                                        <td><img class="table-img-mini"src="../{{$user->USRIMG}}"></td>    
+                                        <td>{{$user->USRTYPE}}</td>                              
+                                        <td>{{$user->USRNAME}}</td>
+                                        <td>{{$user->USRLASTNAME}}</td>
+                                        <td>{{$user->USRMAIL}}</td>
+                                        <td>{{$user->USRSTATUS === 1 ? 'Actiu' : 'Inactiu'}}</td>
+                                        <td><a class="waves-effect waves-light btn blue" href="{{'#modal'.$a}}"><i class="material-icons">search</i></a></td>
+                                        <td><a class="waves-effect waves-light btn blue darken-2" href="{{route('user.edit', $user->USRID)}}"><i class="material-icons">mode_edit</i></a></td>
                                         <td>
-                                            {!! Form::open(['route' => ['product.destroy', $product->PRDNUM]]) !!}
+                                            {!! Form::open(['route' => ['user.destroy', $user->USRID]]) !!}
                                             {{ Form::hidden('_method', 'DELETE') }}
-                                            <button onClick="return confirm('Vol eliminar el producte?')" class="waves-effect waves-light btn purple darken-2">
+                                            <button onClick="return confirm('Vol eliminar al usuari?')" class="waves-effect waves-light btn blue darken-4">
                                                 <i class="material-icons">delete</i>
                                             </button>
                                             {!! Form::close() !!}
@@ -67,8 +62,12 @@
                                      </tr>
                                      <div id="{{'modal'.$a}}" class="modal">
                                         <div class="modal-content">
-                                            <h4>Descripció</h4>
-                                            <p>{{$product->PRDDESCRIPTION}}</p>
+                                            <h4>Informació detallada</h4>
+                                            <p><span class="tittle-black">Login: </span>{{$user->USRLOGIN}}</p>
+                                            <p><span class="tittle-black">Ciutat: </span>{{$user->USRCITY}}</p>
+                                            <p><span class="tittle-black">Direcció: </span>{{$user->USRDIRECTION}}</p>
+                                            <p><span class="tittle-black">Codi postal: </span>{{$user->USRPOSTAL}}</p>
+                                            <p><span class="tittle-black">Telèfon: </span>{{$user->USRMOBILE}}</p>
                                         </div>
                                         <div class="modal-footer">
                                             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Okey</a>

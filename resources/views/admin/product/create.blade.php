@@ -10,7 +10,6 @@
             <div class="col s12 m4 l6 offset-l3">
                 <div class="card">
                     <div class="card-content">
-                 
                          <form enctype="multipart/form-data"  method="POST" action="{{ route('product.store') }}">
                             {{ csrf_field() }}
                             <!-- Category -->
@@ -18,7 +17,7 @@
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">lock_open</i>
                                     <select id="PRDIDCATEGORY" name="PRDIDCATEGORY" required>
-                                        <option value="" selected>Selecciona un estat</option>
+                                        <option value="" selected>Selecciona una categoria</option>
                                         @foreach($categories as $category)
                                             <option value="{{$category->PRCID}}">{{$category->PRCNAME}}</option>
                                         @endforeach
