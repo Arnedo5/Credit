@@ -93,6 +93,15 @@ Route::get('order-detail',[
     'uses'=>'CartController@orderDetail'
 ]);
 
+Route::post('order-confirm',[
+    'middleware'=>'auth',
+    'as'=>'order_store',
+    'uses'=>'CartController@store'
+]);
+
+//Confirm order
+Route::resource('confirm', 'OrderController');
+
 //Login routes
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');

@@ -28,6 +28,11 @@
     <script type="text/javascript">createNoty('error','topRight',"Telèfon incorrecta!",3000)</script>
 @endif
 
+<!-- Validate track -->
+@if ($errors->has('track'))
+    <script type="text/javascript">createNoty('error','topRight',"Selecciona un mèdote d'entrega",3000)</script>
+@endif
+
 <!-- Error Admin -->
 @if (\Session::get('message'))
     <script type="text/javascript">createNoty('error','topRight','{{ \Session::get('message') }}',7000)</script>

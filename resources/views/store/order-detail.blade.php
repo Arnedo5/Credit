@@ -121,7 +121,10 @@
                         </div>
                         <!-- -->
                         <div class="row">
-                            <form class="login-form" role="form" method="POST" action="#!">
+                           
+                            {!! Form::open(array('route' => 'order_store', 'class' => 'form')) !!}
+                                {{ csrf_field() }}
+                                 
                                 <div class="col m12 s12 l4 offset-l1 center shadow row">
                                     <div class="card-content">
                                         <i class="medium material-icons">airport_shuttle</i>
@@ -131,7 +134,7 @@
                                                 <p class="italic">"Rebra el producte dirrectament al seu domicili. El pagament es realitzara via web."</p>
                                             </div>
                                         <p class="center">
-                                            <input name="group1" type="radio" id="test1" />
+                                            <input name="track" value='house' type="radio" id="test1"/>
                                             <label for="test1">Online!</label>
                                         </p>
                                     </div>
@@ -145,26 +148,26 @@
                                                 <p class="italic">"Es recollira el producte fisicament en botiga i es cobrarà el mateix un cop entregat."</p>
                                             </div>
                                         <p class="center">
-                                            <input name="group1" type="radio" id="test2" />
+                                            <input name="track" value='store' type="radio" id="test2"/>
                                             <label for="test2">Fisicament!</label>
                                         </p>
                                     </div>
+                                </div> 
+                            </div>       
+                        </div>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content row">
+                                <div class="btn-left-cart col s12 m12 l6">
+                                    <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('cart-show')}}"><i class="material-icons left">keyboard_arrow_left</i>Cistella</a>
                                 </div>
-                            </form>   
-                        </div>       
-                    </div>
-                </div>  
-            </div>
-            <div class="row">
-                <div class="col s12 m12 l12">
-                    <div class="card">
-                        <div class="card-content row">
-                            <div class="btn-left-cart col s12 m12 l6">
-                                <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('cart-show')}}"><i class="material-icons left">keyboard_arrow_left</i>Cistella</a>
-                            </div>
-                            <div class="btn-right-cart col s12 m12 l6 text-right">
-                                <button type="submit" class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="#!"><i class="material-icons right">keyboard_arrow_right</i>Continuar</button>                               
-                            </div>
+                                <div class="btn-right-cart col s12 m12 l6 text-right">
+                                    <button onClick="return confirm('Desitja realitzar la compra?')" type="submit" class="waves-effect waves-light btn btn-clear blue-grey darken-1"><i class="material-icons right">keyboard_arrow_right</i>Confirmar compra</button>                               
+                                </div>
+                            {!! Form::close() !!} 
                         </div>
                     </div>
                 </div>

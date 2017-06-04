@@ -1,18 +1,22 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Order;
 use App\Product;
 use App\ProductCategory;
+use App\FactureLine;
 
 class CartController extends Controller
 {
     public function __construct() 
     {
         if(!\Session::has('cart')) \Session::put('cart',array());
+        if(!\Session::has('status')) \Session::put('status',array());
     }
 
     //Show Cart
@@ -96,4 +100,93 @@ class CartController extends Controller
         return view('store.order-detail',compact('cart','categories','total'));
        
     }
+
+    public function store(Request $request)
+    {
+        //Check radio button
+        $this->validate($request, [
+            'track' => 'required',
+        ]);
+
+        //dd($request->track);
+        $category = $request->track === 'store' ? 2 : 1;
+
+        //Count
+        $num = DB::table('counts')
+            ->select('CNTNUM')
+            ->where('CNTCATEGORY', 'tracking')
+            ->get()
+            ->pluck('CNTNUM')
+            ->first();
+
+        // Id
+        $id =  DB::table('orders')->count();
+        $id++;
+
+        //Subtotal
+        $cart = \Session::get('cart');
+        $total = 0;
+
+        foreach ($cart as $item) {
+            $total += $item->PRDPRICE * $item->quantity;
+        }
+
+        /* Step */
+        $step = DB::table('order_steps')
+            ->select('ORSID')
+            ->where('ORSNUM', $category)
+            ->where([
+                    ['ORSNUM', '=', $category],
+                    ['ORSSTEP', '=', 1],
+                ])
+            ->pluck('ORSID')
+            ->first();
+               
+
+        /* Create order */
+        $order = Order::create([
+            'ORDID' => $id,
+            'ORDNUM' => $num,
+            'ORDIDUSER' => \Auth::user()->USRID,
+            'ORDSUBTOTAL' => $total,
+            'ORDIDSTEP' => $step,
+            'ORDIDCATEGORY' => $category,
+            'ORDIDREPARE' => 1,
+            'ORDSTATUS' => 1,
+        ]);
+
+        /* Create facture lines */
+        foreach ($cart as $item) {
+            $this->saveOrderItem($item, $num, $id);
+        }
+
+
+        /* Update count */
+        $update = DB::table('counts')
+            ->where('CNTID', 1)
+            ->update(
+                ['CNTNUM' =>  $num + 1]);
+        
+
+        /* Clean cart and Redirect home */
+        \Session::forget('cart');
+        if ($order) {
+            $status = "Comanda numero: ".$num." creada correctament. Comprovi el seu perfil per veure els detalls.";
+        } else {
+            $status = "No s'ha pogut crear la comanda, revisi la seva cistella";
+        }
+       
+        return redirect()->route('home')->with('status', $status); 
+   
+    }
+    private function saveOrderItem($item, $order_num, $order_id)
+	{
+		FactureLine::create([
+			'FCLNUM' => $order_num,
+			'FCLPRICE' => $item->PRDPRICE,
+			'FCLQUANTITY' => $item->quantity,
+			'FCLIDPRODUCT' => $item->PRDID,
+            'FCLIDORDER' => $order_id
+		]);
+	}
 }

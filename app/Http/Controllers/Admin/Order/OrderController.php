@@ -48,26 +48,35 @@ class OrderController extends Controller
         }
 
         // Next step
-        $step =  $order->ORDIDSTEP;
-        $step++;
+        $step =  DB::table('order_steps')
+            ->where('ORSID', $order->ORDIDSTEP)
+            ->first();
 
+        $stepId = DB::table('order_steps')
+            ->select('ORSID')
+             ->where([
+                    ['ORSNUM', '=', $order->ORDIDCATEGORY],
+                    ['ORSSTEP', '=', $step->ORSSTEP+1],
+                ])
+            ->pluck('ORSID')
+            ->first();
+
+       
         // Total steps
         $totalStep = DB::table('order_steps')
             ->where('ORSNUM', $order->ORDIDCATEGORY)
             ->count();
 
-        if($step <= $totalStep) {
+        if($stepId) {
             $update = DB::table('orders')
             ->where('ORDID', $order->ORDID)
             ->update(
-                ['ORDIDSTEP' =>  $step]);
-                if ($step = $totalStep) {
-                    $update = DB::table('orders')
+                ['ORDIDSTEP' =>  $stepId]);
+        } else {
+            $update = DB::table('orders')
                     ->where('ORDID', $order->ORDID)
                     ->update(
                         ['ORDSTATUS' =>  0]);
-                }
-        } else {
             $update = null;
         }
 

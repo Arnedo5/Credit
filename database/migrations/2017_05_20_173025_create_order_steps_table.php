@@ -16,6 +16,7 @@ class CreateOrderStepsTable extends Migration
         Schema::create('order_steps', function (Blueprint $table) {
             $table->increments('ORSID');
             $table->integer('ORSNUM');
+            $table->integer('ORSSTEP');
             $table->string('ORSNAME', 50);
             $table->string('ORSDESCRIPTION', 350);
             $table->string('ORSIMG', 300);

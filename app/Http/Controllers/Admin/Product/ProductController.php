@@ -187,4 +187,18 @@ class ProductController extends Controller
         return 'img/products/product'.$products.'.png';
     }
 
+    public function show()
+    {
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
+        //$categories =  DB::table('product_categories')->get();
+        $categories = ProductCategory::all();
+
+        //dd($categories);
+        return view('admin.product.category.index',compact('categories'));
+    }
+
 }

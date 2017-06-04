@@ -58,8 +58,9 @@
 
                                         <!-- Step -->
                                          @foreach($orderSteps as $orderStep)
-                                            @if($orderStep->ORSID  === $item->ORDIDSTEP)
+                                            @if($orderStep->ORSID === $item->ORDIDSTEP)
                                                 <td>{{$orderStep->ORSNAME}}</td>
+                                                @break
                                             @endif
                                         @endforeach
 
