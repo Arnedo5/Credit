@@ -1,8 +1,8 @@
-@extends('admin.template')
+@extends('user.template')
 
 @section('content')
     <!-- Menu -->
-    @include('admin.partials.menu')
+    @include('user.partials.menu')
 
     <!-- Content -->
     <div class="container">
@@ -11,8 +11,8 @@
                 <div class="card">
                     <div class="card-content">
                         <p class="p-opinions"><i class="material-icons">grade</i>
-                            <span class="opinions">Comandes d'usuaris</span>
-                            <a href="{{route('admin-home')}}" class="waves-effect waves-light btn btn-add blue-grey darken-1"><i class="material-icons">undo</i></a>
+                            <span class="opinions">Comandes</span>
+                            <a href="{{route('user-home')}}" class="waves-effect waves-light btn btn-add blue-grey darken-1"><i class="material-icons">undo</i></a>
                         </p>
                         <div class="divider"></div>
                     </div>
@@ -33,15 +33,14 @@
                                     <th>Categoria</th>
                                     <th>Tracking</th>
                                     <th>Comanda de reparació</th>
-                                    <th>Canvi d'estat</th>
-                                    <th>Tracking</th>
+                                    <th>Estat actual</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $a = 1; ?>
                                 @foreach($order as $item)
                                     <tr>
-                                        <td><a class="waves-effect waves-light" href="{{route('order.edit', $item->ORDID)}}">{{$item->ORDNUM}}</a></td>
+                                        <td><a class="waves-effect waves-light" href="{{route('order_user.edit', $item->ORDNUM)}}">{{$item->ORDNUM}}</a></td>
                                         <!-- User creator -->
                                         @foreach($users as $user)
                                             @if($user->USRID  === $item->ORDIDUSER)
@@ -65,17 +64,8 @@
                                             @endif
                                         @endforeach
 
-                                        <td>{{$item->ORDIDREPARE}}</td>
+                                        <td>{{$item->ORIDREPARE}}</td>
                                         <td>{{$item->ORDSTATUS === 1 ? 'Actiu' : 'Inactiu'}}</td>
-                                        <td>
-                                            {!! Form::open(['route' => ['order.update', $item->ORDID]]) !!}
-                                            {{ Form::hidden('_method', 'DELETE') }}
-                                            <input type="hidden" name="_method" value="PUT"> 
-                                            <button type='submit' onClick="return confirm('Vols canviar l'estat de la compra?')" class="waves-effect waves-light btn deep-purple">
-                                                <i class="material-icons">thumb_up</i>
-                                            </button>
-                                            {!! Form::close() !!}
-                                        </td>
                                      </tr>
                                     <?php $a++; ?>
                                 @endforeach

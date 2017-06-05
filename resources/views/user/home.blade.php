@@ -33,11 +33,7 @@
                             <div id="clients-bar">
                                 <div class="divider-mini"></div>
                                 <p class="p-opinions white-text">
-                                    <p><a href="{{route('product.index')}}"><span class="opinions">Comandes</span></a></p>
-                                </p>
-                                <div class="divider-mini"></div>
-                                <p class="p-opinions white-text">
-                                    <p><a href="{{route('product.index')}}"><span class="opinions">Comandes entregades</span></a></p>
+                                    <p><a href="{{route('order_user.index')}}"><span class="opinions">Comandes</span></a></p>
                                 </p>
                                 <div class="divider-mini"></div>
                             </div>
@@ -102,7 +98,7 @@
                             <div id="clients-bar">
                                 <div class="divider-mini"></div>
                                 <p class="p-opinions white-text">
-                                    <p><a href="{{route('product.index')}}"><span class="opinions">Modificar dades</span></a></p>
+                                    <p><a href="{{route('user_edit.edit', Auth::user()->USRID)}}"><span class="opinions">Modificar dades</span></a></p>
                                 </p>
                                 <div class="divider-mini"></div>
                             </div>

@@ -54,7 +54,7 @@
                                     <div class="divider"></div>
                                 </div>
                                 <div class="col s12 m12 l12">
-                                    <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="#!">Modificar dades</a>
+                                    <a class="waves-effect waves-light btn btn-clear blue-grey darken-1" href="{{route('user_edit.edit', Auth::user()->USRID)}}">Modificar dades</a>
                                 </div>
                             </div>
                         </div>

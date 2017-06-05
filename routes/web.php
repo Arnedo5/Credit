@@ -113,15 +113,20 @@ Route::get('admin/home',[
     'uses'=>'Admin\AdminController@index'
 ]);
 
+//Admin routes
 Route::resource('admin/product', 'Admin\Product\ProductController');
 
 Route::resource('admin/product/category', 'Admin\Product\CategoryController');
 
 Route::resource('admin/order', 'Admin\Order\OrderController');
 
+Route::resource('admin/facture', 'Admin\Order\FactureLineController');
+
+Route::resource('admin/order_categories', 'Admin\Order\CategoriesController');
+
+Route::resource('admin/tracking', 'Admin\Order\TrackingController');
+
 Route::resource('admin/user', 'Admin\UserController');
-
-
 
 //User - home - routes
 Route::get('user/home',[
@@ -130,6 +135,11 @@ Route::get('user/home',[
     'uses'=>'Users\UserController@index'
 ]);
 
+Route::resource('user/order_user', 'Users\OrderController');
+
+Route::resource('user/facture_user', 'Users\FactureLineController');
+
+Route::resource('user/user_edit', 'Users\EditController');
 
 //Category - admin - routes
 /*

@@ -68,7 +68,7 @@ $(document).ready(function() {
             "sProcessing":     "Processant...",
             "sLengthMenu":     "Mostrar _MENU_ registres",
             "sZeroRecords":    "No s'han trobat registres",
-            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sEmptyTable":     "No hi ha cap dada per a mostrar.",
             "sInfo":           "Mostrant registres del _START_ al _END_ del total de _TOTAL_ registres",
             "sInfoEmpty":      "Mostrant registres del 0 al 0 d'un total de 0 registres.'",
             "sInfoFiltered":   "(Filtrant un total de _MAX_ registros)",
@@ -84,8 +84,8 @@ $(document).ready(function() {
                 "sPrevious": "Anterior"
             },
             "oAria": {
-                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                "sSortAscending":  ": Activar per ordenar la columna de forma ascendent",
+                "sSortDescending": ": Activar per ordenar la columna de forma descendent"
             }
         }
     });

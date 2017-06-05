@@ -25,9 +25,9 @@ class OrderController extends Controller
         if(!\Session::has('status')) \Session::put('status',array());
     }
 
-     public function index()
+    public function index()
     {
-         if (auth()->user()->USRTYPE != 'admin'){
+        if (auth()->user()->USRTYPE != 'admin'){
             $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
             return redirect()->route('home')->with('message', $message);
         }
@@ -40,8 +40,30 @@ class OrderController extends Controller
         return view('admin.order.index',compact('order','users','orderCategories','orderSteps'));   
     }
 
+    public function edit(Order $order)
+    {
+
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+        
+        //Facture lines
+        $facture_lines =  DB::table('facture_lines')
+            ->where('FCLNUM', $order->ORDNUM)
+            ->get();
+        
+        //Products
+        $products = DB::table('products')
+            ->get();
+
+
+        return view('admin.order.factureLine',compact('order','facture_lines','products'));
+    }
+
 
     public function update(Order $order){
+
         if (auth()->user()->USRTYPE != 'admin'){
             $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
             return redirect()->route('home')->with('message', $message);
@@ -61,7 +83,6 @@ class OrderController extends Controller
             ->pluck('ORSID')
             ->first();
 
-       
         // Total steps
         $totalStep = DB::table('order_steps')
             ->where('ORSNUM', $order->ORDIDCATEGORY)
@@ -83,6 +104,25 @@ class OrderController extends Controller
         $status = $update ? "Tracking canviat correctament." :  "Maxim canvis d'estat arribat!";
 
         return redirect()->route('order.index')->with('status', $status);  
+    }
+
+    public function show () 
+    {
+        if (auth()->user()->USRTYPE != 'admin'){
+            $message = 'Permis denegat: Nomes els administradors poden entrar en aquesta secció';
+            return redirect()->route('home')->with('message', $message);
+        }
+
+        //Facture lines - products
+        $facture_lines = DB::table('facture_lines')
+            ->get();
+
+        //Products
+        $products = DB::table('products')
+            ->get();
+
+        //Redirect
+        return view('admin.order.facture.index',compact('facture_lines','products'));
     }
 }
 

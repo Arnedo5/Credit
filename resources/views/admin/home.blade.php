@@ -62,15 +62,15 @@
                                     </p>
                                     <div class="divider-mini"></div>
                                     <p class="p-opinions white-text"><i class="material-icons">keyboard_arrow_right</i>
-                                        <a href="{{route('home')}}"><span class="opinions">Línies de factura</span></a>
+                                        <a href="{{route('facture.index')}}"><span class="opinions">Línies de factura</span></a>
                                     </p>
                                     <div class="divider-mini"></div>
                                     <p class="p-opinions white-text"><i class="material-icons">keyboard_arrow_right</i>
-                                        <a href="{{route('home')}}"><span class="opinions">Categories</span></a>
+                                        <a href="{{route('order_categories.index')}}"><span class="opinions">Categories</span></a>
                                     </p>
                                     <div class="divider-mini"></div>
                                     <p class="p-opinions white-text"><i class="material-icons">keyboard_arrow_right</i>
-                                        <a href="{{route('home')}}"><span class="opinions">Tracking comandes</span></a>
+                                        <a href="{{route('tracking.index')}}"><span class="opinions">Tracking comandes</span></a>
                                     </p>
                                 </div>
                             </div>
