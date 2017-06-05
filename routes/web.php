@@ -141,37 +141,10 @@ Route::resource('user/facture_user', 'Users\FactureLineController');
 
 Route::resource('user/user_edit', 'Users\EditController');
 
-//Category - admin - routes
-/*
-Route::get('admin/product/category',[
-    'middleware'=>'auth',
-    'as'=>'admin-product-category-index',
-    'uses'=>'Admin\Product\CategoryController@index'
+//Tracking
+Route::get('tracking',[
+    'as' => 'tracking-index',
+    'uses' => 'StoreControler@showTracking'
 ]);
 
-Route::get('admin/product/category/create',[
-    'middleware'=>'auth',
-    'as'=>'admin-product-category-create',
-    'uses'=>'Admin\Product\CategoryController@create'
-]);
-
-Route::post('admin/product/category/show',[
-    'middleware'=>'auth',
-    'as'=>'admin-product-category-show',
-    'uses'=>'Admin\Product\CategoryController@store'
-]);
-
-Route::get('admin/product/category/edit/{PRCID}',[
-    'middleware'=>'auth',
-    'as'=>'admin-product-category-edit',
-    'uses'=>'Admin\Product\CategoryController@edit'
-]);
-
-Route::get('admin/product/category/update',[
-    'middleware'=>'auth',
-    'as'=>'admin-product-category-update',
-    'uses'=>'Admin\Product\CategoryController@update'
-]);
-*/
-
-//Route::resource('admin/product/category','Admin\Product\CategoryController');
+Route::resource('tracking', 'TrackingController');

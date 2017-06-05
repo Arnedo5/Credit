@@ -118,3 +118,40 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 .card {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+
+/* Tracking */
+.container-img{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/tracking/background.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.btn-send{
+    margin-top: 25px;
+}
+
+.tittle-categories {
+    text-align: left;
+    margin-top: 20px;
+    font-size: 20px;
+    color: rgba(0,0,0,0.87);
+}
+
+.container-form {
+  margin-top: 30vh;
+  z-index: 100;
+}
+
+.card-content {
+    position: relative;
+}
+
+.btn-right {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
