@@ -141,10 +141,6 @@ Route::resource('user/facture_user', 'Users\FactureLineController');
 
 Route::resource('user/user_edit', 'Users\EditController');
 
-//Tracking
-Route::get('tracking',[
-    'as' => 'tracking-index',
-    'uses' => 'StoreControler@showTracking'
-]);
+//Tracking routes
 
-Route::resource('tracking', 'TrackingController');
+Route::resource('tracking-search', 'TrackingController');

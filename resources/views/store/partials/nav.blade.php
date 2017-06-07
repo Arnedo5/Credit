@@ -10,7 +10,7 @@
                         <button href="{{route('cart-show')}}" class="btn-floating waves-effect waves-light red btn-card">{{count($cart)}}</button>
                     @endif
                 </li>  
-                <li><a href="{{route('tracking.index')}}">Tracking</a></li>
+                <li><a href="{{route('tracking-search.index')}}">Tracking</a></li>
                  @if(Auth::check())
                     @if(Auth::user()->USRTYPE ===  'user')
                         <li><a href="{{route('user-home')}}">Panell d'usuari</a></li>
